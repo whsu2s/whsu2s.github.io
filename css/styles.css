@@ -1,0 +1,40 @@
+```css
+/* styles.css */
+body {
+    font-family: sans-serif;
+}
+
+.header-title {
+    font-size: 36px; /* Header title (e.g., "Life Blogs") */
+}
+
+.nav-link {
+    font-size: 18px; /* Navigation links */
+}
+
+.section-title {
+    font-size: 28px; /* Section headings (e.g., "Life Posts") */
+}
+
+.post-title {
+    font-size: 22px; /* Post titles */
+}
+
+.post-date {
+    font-size: 14px; /* Post dates */
+}
+
+.article-content {
+    font-size: 18px; /* Article content in <p> tags */
+}
+
+.footer-text {
+    font-size: 14px; /* Footer text */
+}
+
+pre {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+```
