@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predicting disease patterns through GAN-based image editing</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet"> <!-- Link to CSS file -->
     <style>
         pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <header class="bg-blue-600 text-white p-4">
-        <h1 class="text-3xl font-bold">First Research Post</h1>
+        <h1 class="text-3xl font-bold">Research Blogs</h1>
         <nav class="mt-2">
             <a href="../../index.html" class="text-white hover:underline mr-4">Home</a>
             <a href="../research.html" class="text-white hover:underline mr-4">Research</a>
@@ -21,20 +22,38 @@
     </header>
     <main class="max-w-4xl mx-auto p-4">
         <article class="my-8">
-            <h2 class="text-2xl font-semibold mb-2">First Research Post</h2>
+            <h2 class="text-2xl font-semibold mb-2">Neurological Disorder Analysis Using StyleGAN</h2>
             <p class="text-gray-500 text-sm mb-4">Posted on 28 April, 2025</p>
             <p class="text-gray-700 mb-4">
-                This scientific article investigates a novel approach to understanding multiple sclerosis (MS) using a deep learning model called StyleGAN. 
-                The research trained the StyleGAN model on MRI scans of both MS patients and healthy individuals. 
+                Generative Adversarial Networks (GANs) <a href="#ref1">[1]</a>, introduced in 2014, are deep learning models that can generate realistic synthetic data by learning from real examples.
+                StyleGAN <a href="#ref2">[2]</a>, developed by NVIDIA, is a powerful variant that controls visual features at multiple levels, from broad structure to fine details, making it useful when high-quality and interpretable images are needed.
+            </p>
+            <p>
+                In this study <a href="#ref3">[3]</a>, we used StyleGAN to model disease progression in MRI scans. By learning how healthy and diseased images differ, the model could simulate plausible future changes, offering insights into how conditions might evolve over time.
+
+                We trained the StyleGAN model on MRI scans of both healthy controls and patients with multiple sclerosis (MS). 
                 By manipulating images in the model's latent space, the study successfully simulated MS progression, observing changes like brain volume loss and increased lesion size. 
                 This demonstrates the model's potential for identifying imaging markers and gaining further insight into the relationship between brain atrophy and the advancement of MS.
             </p>
-            <img src="../../images/ms_manipulation.jpg" alt="Research Image" class="my-4 w-full h-auto"> 
-            <pre><code># Research code
-def research_example():
-    return "Research is exciting!"
-print(research_example())
-</code></pre>
+
+            <p>
+                While GANs have become less popular recently due to the rise of diffusion models and transformers, they remain valuable tools for image generation and editing.
+            </p>
+
+            <figure class="my-4">
+                <img src="../../images/ms_manipulation.jpg" alt="Research Image" class="w-full h-auto">
+                <figcaption class="text-center text-sm text-gray-600 mt-2">
+                    Figure 1: Simulated MS patterns on T1-weighted (left) and ADC (right) MRI slices from one subject. The red and blue regions indicate the increasing and decreasing pixel values from the baseline.
+                </figcaption>
+            </figure> 
+            
+            <h2><b>References</b></h2>
+            <ol>
+                <li id="ref1">[1] Goodfellow I, Pouget-Abadie J, Mirza M, Xu B, Warde-Farley D, Ozair S, Courville A, Bengio Y. <i>Generative adversarial networks.</i>. Communications of the ACM, 63(11), 139-144, 2014.</li>
+                <li id="ref2">[2] Karras T, Laine S, Aila T. <i>A style-based generator architecture for generative adversarial networks.</i>. Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, 2019.</li>
+                <li id="ref3">[3] Güllmar D, Hsu WC, Reichenbach JR. <i>Predicting disease-related MRI patterns of multiple sclerosis through GAN-based image editing.</i>. Zeitschrift für Medizinische Physik 34.2 (2024): 318-329, 2024.</li>
+
+            </ol>
         </article>
     </main>
     <footer class="bg-gray-800 text-white p-4 text-center">
