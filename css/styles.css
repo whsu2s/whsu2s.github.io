@@ -29,8 +29,8 @@ p {
   text-align: justify;
 }
 
-.footer-text {
-    font-size: 14px; /* Footer text */
+footer p {
+    text-align: center !important;
 }
 
 pre {
