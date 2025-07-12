@@ -22,24 +22,78 @@
     </header>
     <main class="max-w-4xl mx-auto p-4">
         <article class="my-8">
-            <h2 class="text-2xl font-semibold mb-2">TItle</h2>
-            <p class="text-gray-500 text-sm mb-4">Posted on 6 July, 2025</p>
+            <h2 class="text-2xl font-semibold mb-2">Efficient HER2 Prediction Using Cell Templates and Pericellular DAB Intensity</h2>
+            <p class="text-gray-500 text-sm mb-4">Posted on 12 July, 2025</p>
             <p class="text-gray-700 mb-4">
+                <b>HER2 (Human Epidermal Growth Factor Receptor 2)</b> is a critical biomarker in breast cancer pathology, guiding decisions for targeted therapies. 
+                HER2 status is typically assessed via <b>immunohistochemical (IHC)</b> staining and scored on a scale from 0 to 3+ (Table 1), based on the proportion and intensity of membrane staining in tumor cells. 
+                A major challenge in clinical settings is the subjectivity of visual scoring, especially for borderline cases between 0 and 1+, which significantly affects treatment eligibility. 
+                Deep learning (DL)-based approaches have shown promise but often struggle to distinguish these subtle categories due to limitations in accurately detecting overlapping or faintly stained tumor cells <a href="#ref1">[1]</a>. 
+                Instead of relying solely on data-hungry black-box models, we proposed a classical computer vision pipeline to more precisely detect and quantify HER2 status between HER2 score 0 and 1+.
+            </p>
+
+            <table border="1" cellpadding="8" cellspacing="0">
+                <caption><strong>Table 1: HER2 Scoring Guidelines <a href="#ref1">[2]</a> </strong></caption>
+                <thead>
+                    <tr>
+                    <th><strong>HER2 Score</strong></th>
+                    <th><strong>Assessment</strong></th>
+                    <th><strong>Staining Pattern</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>0</td>
+                    <td>Negative</td>
+                    <td>No staining or faint/barely perceptible membrane staining in less than 10% of tumor cells</td>
+                    </tr>
+                    <tr>
+                    <td>1+</td>
+                    <td>Negative</td>
+                    <td>Barely perceptible incomplete membrane staining in greater than 10% of tumor cells</td>
+                    </tr>
+                    <tr>
+                    <td>2+</td>
+                    <td>Equivocal</td>
+                    <td>A weak to moderate complete membrane staining is observed in &gt; 10% of tumor cells</td>
+                    </tr>
+                    <tr>
+                    <td>3+</td>
+                    <td>Positive</td>
+                    <td>Strong (intense and uniform) complete membrane staining is observed in &gt; 10% of invasive tumor cells</td>
+                    </tr>
+                </tbody>
+                </table>
+
+            <p class="text-gray-700 mb-4"></p>
+                Our pipeline specifically targets challenging HER2 0 vs 1+ classification cases. 
+                We first perform color deconvolution to extract both the DAB channel (for HER2 membrane staining) and the hematoxylin channel (for nuclei). 
+                Template matching is used to detect individual cell centroids, even in crowded regions. 
+                We then generate a binary mask from the hematoxylin channel to identify candidate cell regions and filter false positives. 
+                For each remaining cell, we measure the DAB intensity in a thin ring around the nucleus. 
+                A cell is marked HER2-positive if the stained fraction exceeds a threshold, and the final HER2 percentage is computed as the ratio of positive cells to all detected tumor cells.
+            </p>
+
+            <p class="text-gray-700 mb-4"></p>
+                To support practical usage, we developed a lightweight GUI tool that allows users to interactively select regions of interest (ROI) on the whole-slide image. 
+                Upon selection, the tool extracts the ROI, performs HER2 quantification, and visualizes both the original and DAB-stained regions side by side. 
+                The entire process, from ROI selection to HER2 score estimation, takes under 30 seconds, making it feasible for routine clinical or research workflows.
             </p>
 
             <figure class="my-4">
                 <img src="../../images/img.jpg" alt="Research Image" class="w-full h-auto">
                 <figcaption class="text-center text-sm text-gray-600 mt-2">
-                    Figure 1: 
+                    Figure 1: A demonstration of the interface in action, highlighting how traditional CV can offer both transparency and clinical utility in digital pathology.
                 </figcaption>
             </figure> 
             
             <h2><b>References</b></h2>
             <ol>
                 <li id="ref1">[1] Authors. <i>Title.</i>. Publisher, 2014.</li>
+                <li id="ref1">[2] Authors. <i>Title.</i>. Publisher, 2014.</li>
             </ol>
         </article>
     </main>
     <footer class="bg-gray-800 text-white p-4 text-center">
-        <p>© 2025 [Your Name]. Hosted on GitHub Pages.</p>
+        <p>© 2025 whsu2s. Hosted on GitHub Pages.</p>
     </footer>
