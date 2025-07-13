@@ -43,29 +43,29 @@
                 </thead>
                 <tbody>
                     <tr>
-                    <td>0</td>
+                    <td style="text-align: center;">0</td>
                     <td>Negative</td>
                     <td>No staining or faint/barely perceptible membrane staining in less than 10% of tumor cells</td>
                     </tr>
                     <tr>
-                    <td>1+</td>
+                    <td style="text-align: center;">1+</td>
                     <td>Negative</td>
                     <td>Barely perceptible incomplete membrane staining in greater than 10% of tumor cells</td>
                     </tr>
                     <tr>
-                    <td>2+</td>
+                    <td style="text-align: center;">2+</td>
                     <td>Equivocal</td>
                     <td>A weak to moderate complete membrane staining is observed in &gt; 10% of tumor cells</td>
                     </tr>
                     <tr>
-                    <td>3+</td>
+                    <td style="text-align: center;">3+</td>
                     <td>Positive</td>
                     <td>Strong (intense and uniform) complete membrane staining is observed in &gt; 10% of invasive tumor cells</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p class="text-gray-700 mb-4"></p>
+            <p class="text-gray-700 mb-4">
                 Our pipeline specifically targets challenging faint and incomplete staining quantification cases (HER2 0 vs 1+). 
                 We first perform color deconvolution to extract both the DAB channel (for HER2 membrane staining) and the hematoxylin channel (for nuclei). 
                 Template matching is used to detect individual cell centroids, even in crowded regions. 
@@ -74,7 +74,7 @@
                 A cell is marked HER2-positive if the stained fraction exceeds a threshold, and the final HER2 percentage is computed as the ratio of positive cells to all detected tumor cells.
             </p>
 
-            <p class="text-gray-700 mb-4"></p>
+            <p class="text-gray-700 mb-4">
                 To support practical usage, we developed a lightweight GUI tool that allows users to interactively select regions of interest (ROI) on the whole-slide image. 
                 Upon selection, the tool extracts the ROI, performs HER2 quantification, and visualizes both the original and DAB-stained regions side by side. 
                 The entire process, from ROI selection to HER2 score estimation, takes under 30 seconds, making it feasible for routine clinical or research workflows.
