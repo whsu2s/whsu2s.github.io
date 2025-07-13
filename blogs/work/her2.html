@@ -23,17 +23,17 @@
     <main class="max-w-4xl mx-auto p-4">
         <article class="my-8">
             <h2 class="text-2xl font-semibold mb-2">Efficient HER2 Prediction Using Cell Templates and Pericellular DAB Intensity</h2>
-            <p class="text-gray-500 text-sm mb-4">Posted on 12 July, 2025</p>
+            <p class="text-gray-500 text-sm mb-4">Written on 12 July, 2025</p>
             <p class="text-gray-700 mb-4">
                 <b>HER2 (Human Epidermal Growth Factor Receptor 2)</b> is a critical biomarker in breast cancer pathology, guiding decisions for targeted therapies. 
                 HER2 status is typically assessed via <b>immunohistochemical (IHC)</b> staining and scored on a scale from 0 to 3+ (Table 1), based on the proportion and intensity of membrane staining in tumor cells. 
                 A major challenge in clinical settings is the subjectivity of visual scoring, especially for borderline cases between 0 and 1+, which significantly affects treatment eligibility. 
-                Deep learning (DL)-based approaches have shown promise but often struggle to distinguish these subtle categories due to limitations in accurately detecting overlapping or faintly stained tumor cells <a href="#ref1">[1]</a>. 
-                Instead of relying solely on data-hungry black-box models, we proposed a classical computer vision pipeline to more precisely detect and quantify HER2 status between HER2 score 0 and 1+.
+                Deep learning (DL)-based approaches <a href="#ref1">[1-3]</a> have shown promise but often struggle to distinguish and quantify these subtle categories due to limitations in accurately detecting overlapping or faintly stained tumor cells. 
+                Inspired by <a href="#ref1">[4]</a>, we proposed a classical computer vision pipeline to more precisely detect and quantify HER2 status between HER2 score 0 and 1+.
             </p>
 
             <table border="1" cellpadding="8" cellspacing="0">
-                <caption><strong>Table 1: HER2 Scoring Guidelines <a href="#ref1">[2]</a> </strong></caption>
+                <caption><strong>Table 1: HER2 Scoring Guidelines <a href="#ref1">[1]</a> </strong></caption>
                 <thead>
                     <tr>
                     <th><strong>HER2 Score</strong></th>
@@ -63,10 +63,10 @@
                     <td>Strong (intense and uniform) complete membrane staining is observed in &gt; 10% of invasive tumor cells</td>
                     </tr>
                 </tbody>
-                </table>
+            </table>
 
             <p class="text-gray-700 mb-4"></p>
-                Our pipeline specifically targets challenging HER2 0 vs 1+ classification cases. 
+                Our pipeline specifically targets challenging faint and incomplete staining quantification cases (HER2 0 vs 1+). 
                 We first perform color deconvolution to extract both the DAB channel (for HER2 membrane staining) and the hematoxylin channel (for nuclei). 
                 Template matching is used to detect individual cell centroids, even in crowded regions. 
                 We then generate a binary mask from the hematoxylin channel to identify candidate cell regions and filter false positives. 
@@ -89,8 +89,10 @@
             
             <h2><b>References</b></h2>
             <ol>
-                <li id="ref1">[1] Authors. <i>Title.</i>. Publisher, 2014.</li>
-                <li id="ref1">[2] Authors. <i>Title.</i>. Publisher, 2014.</li>
+                <li id="ref1">[1] Kabir S, Vranic S, Al Saady RM, Khan MS, Sarmun R, Alqahtani A, Abbas TO, Chowdhury ME. <i>The utility of a deep learning-based approach in Her-2/neu assessment in breast cancer.</i> Expert Systems with Applications, 238, 122051, 2024.</li>
+                <li id="ref1">[2] Palm C, Connolly CE, Masser R, Padberg Sgier B, Karamitopoulou E, Simon Q, Bode B, Tinguely M. <i>Determining HER2 status by artificial intelligence: an investigation of primary, metastatic, and HER2 low breast tumors.</i> Diagnostics, 13(1), 168, 2023.</li>
+                <li id="ref1">[3] Vandenberghe ME, Scott ML, Scorer PW, Söderberg M, Balcerzak D, Barker C. <i>Relevance of deep learning to facilitate the diagnosis of HER2 status in breast cancer.</i> Publisher, 2017.</li>
+                <li id="ref1">[4] Zhang Z, Wang L, Wang S. <i>Automated scoring system of HER2 in pathological images under the microscope.</i> arXiv preprint arXiv:2110.12900, 2021.</li>
             </ol>
         </article>
     </main>
