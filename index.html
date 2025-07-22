@@ -22,16 +22,27 @@
     <main class="max-w-4xl mx-auto p-4">
         <section class="my-8">
             <h2 class="text-2xl font-semibold mb-4">Welcome</h2>
-            <p class="text-gray-700">Hi! I'm [Your Name]. This site showcases my research, work, and personal life. Check out my blogs for updates!</p>
+            <p class="text-gray-700">
+                Between research papers and train rides, code and conversations, this blog captures what I’ve been working on and thinking about. 
+                I write about computer vision and deep learning in medicine, as well as reflections on culture, faith, and everyday life. 
+            </p>
         </section>
         <section class="my-8">
             <h2 class="text-2xl font-semibold mb-4">Featured Research</h2>
             <p class="text-gray-700">Brief overview of your research. Add images or code snippets as needed.</p>
             <img src="images/research.jpg" alt="Research Image" class="my-4 w-full h-auto">
             <pre><code># Sample Python code
-def example():
-    return "Hello, World!"
-print(example())
+import random
+
+def blog_post():
+    return random.choice([
+        "💡 A thought on AI in medical imaging.",
+        "📝 A reflection on life, walks, and waiting.",
+        "🔬 A glimpse into MRI: decoding invisible patterns in apparent disorder.",
+        "🌙 Some quiet thoughts under a German sky."
+    ])
+
+print("Today's blog:", blog_post())
 </code></pre>
         </section>
     </main>
