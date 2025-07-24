@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automated Landmark Detection for Lower-Limb Alignment Assessment</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="../../css/styles.css" rel="stylesheet" />
+  <style>
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white p-4">
+    <h1 class="text-3xl font-bold">Work Blogs</h1>
+    <nav class="mt-2">
+      <a href="../../index.html" class="text-white hover:underline mr-4">Home</a>
+      <a href="../research.html" class="text-white hover:underline mr-4">Research</a>
+      <a href="../work.html" class="text-white hover:underline mr-4">Work</a>
+      <a href="../life.html" class="text-white hover:underline">Life</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto p-4">
+    <article class="my-8">
+      <h2 class="text-2xl font-semibold mb-2">Automated Landmark Detection for Lower-Limb Alignment Assessment</h2>
+      <p class="text-gray-500 text-sm mb-4">Posted on 24 July, 2025</p>
+
+      <p><strong>Purpose</strong></p>
+      <p class="text-gray-700 mb-4">
+        The goal of this work is to develop an automated method for detecting 30 anatomical landmarks in radiographs of the lower limb.
+        These landmarks are crucial for assessing lower-limb alignment (Figure 1), which is essential for diagnosing conditions like osteoarthritis and planning surgical interventions.
+      </p>
+
+      <!-- Optional Image -->
+      <figure class="my-4">
+        <img src="../../images/{{image-filename}}" alt="{{image-alt}}" class="w-full h-auto" />
+        <figcaption class="text-center text-sm text-gray-600 mt-2">
+          Figure 1: Some of the lower limb alignment parameters, such as the mechanical tibiofemoral angle (mTFA), mechanical lateral distal femoral angle (mLDFA), medial proximal tibial angle (MPTA).
+        </figcaption>
+      </figure>
+
+      <p><strong>Existing Methods</strong></p>
+
+      <p class="text-gray-700 mb-4">
+        Recent studies have incorporated deep learning for both segmentation and landmark detection <a href="#ref1">[1]</a>. 
+        Some approaches (e.g., Pei et al., Gielis et al.) extract key anatomical landmarks directly from radiographs using regression or detection models and compute angles like the HKA based on those coordinates.
+        However, these approaches often rely on annotated landmark datasets, which are labor-intensive to generate and may propagate observer bias into the training process. 
+      </p>
+
+      <p><strong>Proposed Method</strong></p>
+      <p class="text-gray-700 mb-4">
+        Our study proposes a method that uses a deep learning model to segments femur and tibia, and then applies a series of geometric reasoning to extract the 30 anatomical landmarks. 
+        We trained a U-Net segmentation model using only 40 readiographs, reaching a Dice score of 0.97 for both femur and tibia.
+        The model's output is then processed to extract the 30 landmarks. The rules for landmark extraction are based on the 
+      </p>
+
+      <!-- Optional Image -->
+      <figure class="my-4">
+        <img src="../../images/{{image-filename}}" alt="{{image-alt}}" class="w-full h-auto" />
+        <figcaption class="text-center text-sm text-gray-600 mt-2">
+          Figure 2: Results of the landmark detection on two radiographs. 
+        </figcaption>
+      </figure>
+
+      <!-- Optional Code Block -->
+      <pre><code>{{code-block}}</code></pre>
+
+      <!-- More Content -->
+      <p class="text-gray-700 mb-4">
+        {{content-paragraph-2}}
+      </p>
+
+      <!-- References -->
+      <h2><b>References</b></h2>
+      <ol>
+          <li id="ref1">[1] Goodfellow I, Pouget-Abadie J, Mirza M, Xu B, Warde-Farley D, Ozair S, Courville A, Bengio Y. <i>Generative adversarial networks.</i>. Communications of the ACM, 63(11), 139-144, 2014.</li>
+          <li id="ref2">[2] Karras T, Laine S, Aila T. <i>A style-based generator architecture for generative adversarial networks.</i>. Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, 2019.</li>
+          <li id="ref3">[3] Güllmar D, Hsu WC, Reichenbach JR. <i>Predicting disease-related MRI patterns of multiple sclerosis through GAN-based image editing.</i>. Zeitschrift für Medizinische Physik 34.2 (2024): 318-329, 2024.</li>
+
+      </ol>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white p-4 text-center">
+    <p>© 2025 whsu2s. Hosted on GitHub Pages.</p>
+  </footer>
+</body>
+</html>
