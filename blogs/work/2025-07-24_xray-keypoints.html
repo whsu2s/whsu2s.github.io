@@ -55,16 +55,19 @@
       <p><strong>Existing Methods</strong></p>
 
       <p class="text-gray-700 mb-4">
-        Recent studies have incorporated deep learning for both segmentation and landmark detection <a href="#ref1">[1]</a>. 
-        Some approaches (e.g., Pei et al., Gielis et al.) extract key anatomical landmarks directly from radiographs using regression or detection models and compute angles like the HKA based on those coordinates.
-        However, these approaches often rely on annotated landmark datasets, which are labor-intensive to generate and may propagate observer bias into the training process. 
+        Recent studies have incorporated deep learning for region detection or segmentation and extract key anatomical landmarks to automatically compute lower-limb aalignment parameters<a href="#ref1">[1-3]</a>. 
+        However, these approaches often rely on large annotated landmark datasets, which are labor-intensive to generate and may propagate observer bias into the training process. 
       </p>
 
-      <p><strong>Proposed Method</strong></p>
+      <p><strong>Method and Result</strong></p>
       <p class="text-gray-700 mb-4">
         Our study proposes a method that uses a deep learning model to segments femur and tibia, and then applies a series of geometric reasoning to extract the 30 anatomical landmarks. 
         We trained a U-Net segmentation model using only 40 readiographs, reaching a Dice score of 0.97 for both femur and tibia.
-        The model's output is then processed to extract the 30 landmarks. The rules for landmark extraction are based on the 
+        The model's output is then processed to extract the 30 landmarks. The rules for landmark extraction are based on the geometric and anatomical priors, such as the contours along the bone edges and the relationships between different landmarks.
+        <!--The method achieved a mean absolute error of 1.2 mm for the femur and 1.5 mm for the tibia, which is comparable to manual measurements.--> 
+        Figure 2 shows the landmark detection results on a radiograph. 
+        Without many manual annotations, the method can achieve generally accurate result if the segmentation is correct. 
+        The main challenge is the detection relise on the segmentation, which can be affected by the image quality and the presence of artifacts.
       </p>
 
       <!-- Optional Image -->
@@ -77,20 +80,13 @@
         </figcaption>
       </figure>
 
-      <!-- Optional Code Block -->
-      <pre><code>{{code-block}}</code></pre>
-
-      <!-- More Content -->
-      <p class="text-gray-700 mb-4">
-        {{content-paragraph-2}}
-      </p>
 
       <!-- References -->
       <h2><b>References</b></h2>
       <ol>
-          <li id="ref1">[1] Goodfellow I, Pouget-Abadie J, Mirza M, Xu B, Warde-Farley D, Ozair S, Courville A, Bengio Y. <i>Generative adversarial networks.</i>. Communications of the ACM, 63(11), 139-144, 2014.</li>
-          <li id="ref2">[2] Karras T, Laine S, Aila T. <i>A style-based generator architecture for generative adversarial networks.</i>. Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, 2019.</li>
-          <li id="ref3">[3] Güllmar D, Hsu WC, Reichenbach JR. <i>Predicting disease-related MRI patterns of multiple sclerosis through GAN-based image editing.</i>. Zeitschrift für Medizinische Physik 34.2 (2024): 318-329, 2024.</li>
+          <li id="ref1">[1] A Tack, B Preim, S Zachow. <i>Fully automated assessment of knee alignment from full-leg X-rays employing a “YOLOv4 And Resnet Landmark regression Algorithm”(YARLA): data from the osteoarthritis initiative.</i> Computer Methods and Programs in Biomedicine 205 (2021): 106080.</li>
+          <li id="ref2">[2] KR Moon, BD Lee, MS Lee. <i>A deep learning approach for fully automated measurements of lower extremity alignment in radiographic images.</i> Scientific Reports 13.1 (2023): 14692.</li>
+          <li id="ref3">[3] HS Lee, S Hwang, SH Kim, NB Joon, H Kim, YS Hong, S Kim. <i>Automated analysis of knee joint alignment using detailed angular values in long leg radiographs based on deep learning.</i> Scientific Reports 14.1 (2024): 7226.</li>
 
       </ol>
     </article>
