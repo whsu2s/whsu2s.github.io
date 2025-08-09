@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{{title}}</title>
+  <title>Lameness Detection</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="../../css/styles.css" rel="stylesheet" />
   <style>
@@ -34,29 +34,40 @@
       <p class="text-gray-500 text-sm mb-4">Posted on 06 August, 2025</p>
 
       <p class="text-gray-700 mb-4">
-        {{content-paragraph-1}}
+        Lameness is a serious disorder in dairy farms that increases the risk of culling of cattle as well as economic losses. 
+        The issue is addressed by lameness detection using locomotion scoring <a href="#ref1">[1]</a>, which assesses the lameness level of cattle by their pose and gait patterns.
+        This proof-of-concept study aims to evaluate whether lameness detection can be achieved by modeling video recordings as time series data. 
       </p>
 
       <!-- Optional Image -->
       <figure class="my-4">
-        <img src="../../images/{{image-filename}}" alt="{{image-alt}}" class="w-full h-auto" />
+        <img src="../../images/research/lameness_detection_workflow.png" alt="{{image-alt}}" class="w-full h-auto" />
         <figcaption class="text-center text-sm text-gray-600 mt-2">
-          Figure 1: {{caption}}
+          Figure 1: The pipeline of the lameness detection system:
+          Raw video recordings are segmented into 30-second clips (data preprocessing), from which 25 anatomical keypoints are extracted using DeepLabCut (pose estimation). 
+          The resulting keypoint sequences are analyzed with a time-series model (feature extraction) to classify the level of lameness (prediction).
         </figcaption>
       </figure>
 
-      <!-- Optional Code Block -->
-      <pre><code>{{code-block}}</code></pre>
-
       <!-- More Content -->
       <p class="text-gray-700 mb-4">
-        {{content-paragraph-2}}
+        This study investigates the feasibility of detecting bovine lameness from video data by modeling gait and pose as skeleton-based time series. 
+        The pipeline is shown in Figure 1. 
+        As previous studies show that the lameness level is correlated with the back posture and gait patterns <a href="#ref1">[1-2]</a>, the proposed method used gait and pose as features for lameness detection.
+        Raw videos were segmented into single-cow walking clips, and 25 anatomical keypoints were extracted using DeepLabCut <a href="#ref1">[3]</a>. 
+        The resulting sequences were classified using a Hierarchical Recurrent Neural Network (HRNN), with Random Forest and K-Means clustering as baselines.
+      </p>
+
+      <p class="text-gray-700 mb-4">
+        
       </p>
 
       <!-- References -->
       <h2 class="text-xl font-semibold mt-8 mb-2">References</h2>
       <ol class="list-decimal list-inside text-gray-700 text-sm">
-        <li id="ref1">[1] Author(s). <i>Title.</i> Publisher, Year.</li>
+        <li id="ref1">[1] DJ Sprecher, DE Hostetler, JB Kaneene. <i>A lameness scoring system that uses posture and gait to predict dairy cattle reproductive performance.</i> Theriogenology, 47(6), 1179-1187, 1997.</li>
+        <li id="ref1">[2] A Poursaberi, C Bahr, A Pluk, D Berckmans, T Veermäe, E Kokin, V Pokalainen. <i>Online lameness detection in dairy cattle using Body Movement Pattern (BMP).</i> 2011 11th International Conference on Intelligent Systems Design and Applications. IEEE, 2011.</li>
+        <li id="ref1">[3] A Mathis, P Mamidanna, KM Cury, T Abe, VN Murthy, MW Mathis & M Bethge. <i>DeepLabCut: markerless pose estimation of user-defined body parts with deep learning.</i> Nature neuroscience, 21(9), 1281-1289, 2018.</li>
         <!-- Add more references as needed -->
       </ol>
     </article>
